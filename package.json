@@ -1,0 +1,33 @@
+{
+  "name": "antigravity-chrome-connector",
+  "version": "2.0.0",
+  "description": "Ultra-fast Manifest V3 Chrome Extension, shared localhost WebSocket Hub, and MCP Server for Google Antigravity — cross-frame iframes, Set-of-Marks visual annotations, diff snapshots, batched execution, and on-demand CDP.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "antigravity",
+    "chrome-extension",
+    "mcp",
+    "model-context-protocol",
+    "browser-automation",
+    "cdp",
+    "ai-agent"
+  ],
+  "scripts": {
+    "init": "node scripts/init-config.mjs",
+    "icons": "node scripts/generate-icons.mjs",
+    "setup": "node scripts/setup.mjs",
+    "hub": "node server/hub.mjs",
+    "mcp": "node server/mcp-server.mjs",
+    "verify": "node scripts/verify.mjs",
+    "test": "node scripts/verify.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.0",
+    "ws": "^8.18.0",
+    "zod": "^3.24.0"
+  }
+}

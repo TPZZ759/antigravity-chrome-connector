@@ -1,0 +1,9 @@
+node_modules/
+extension/bridge.config.json
+extension/config.local.js
+*.pem
+*.crx
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*

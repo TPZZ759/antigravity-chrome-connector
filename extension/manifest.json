@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Antigravity Chrome Connector",
+  "version": "2.0.0",
+  "description": "Ultra-fast browser automation, cross-frame DOM snapshots, Set-of-Marks visual annotations, batched actions, and on-demand CDP bridge for Google Antigravity.",
+  "permissions": [
+    "tabs",
+    "tabGroups",
+    "activeTab",
+    "scripting",
+    "storage",
+    "alarms",
+    "sidePanel",
+    "debugger",
+    "cookies"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Antigravity Chrome Connector",
+    "default_popup": "panel.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

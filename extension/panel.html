@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Antigravity Chrome Connector</title>
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="brand">
+          <div class="logo-dot" id="statusDot"></div>
+          <div>
+            <h1>Antigravity</h1>
+            <div class="subtitle" id="statusSubtitle">Connecting…</div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="openSidePanelBtn" class="icon-btn" title="Open Side Panel">Side Panel</button>
+          <button id="reconnectBtn" class="icon-btn" title="Reconnect to Hub">↻</button>
+        </div>
+      </header>
+
+      <section class="card hero-card">
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-label">Status</span>
+            <span class="metric-value" id="connText">Offline</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Latency</span>
+            <span class="metric-value" id="latencyText">—</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Agents</span>
+            <span class="metric-value" id="clientsText">0</span>
+          </div>
+        </div>
+        <div class="hero-buttons">
+          <button id="pauseBtn" class="btn btn-primary">Pause Agent</button>
+          <button id="detachCdpBtn" class="btn btn-ghost hidden">Detach CDP (<span id="cdpCount">0</span>)</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Tab Control Scope</div>
+        <div class="segmented" id="scopeControl">
+          <button data-scope="all" class="seg-btn active">All Tabs</button>
+          <button data-scope="group" class="seg-btn">Group Only</button>
+          <button data-scope="active" class="seg-btn">Active Tab</button>
+        </div>
+        <div class="toggles">
+          <label class="toggle-row">
+            <span>
+              <strong>Visual Highlight</strong>
+              <small>Flash ring around clicked/typed elements</small>
+            </span>
+            <input type="checkbox" id="highlightToggle" />
+          </label>
+          <label class="toggle-row">
+            <span>
+              <strong>Allow JS Eval</strong>
+              <small>Permit <code>browser_eval</code> page scripts</small>
+            </span>
+            <input type="checkbox" id="evalToggle" />
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <div class="section-title">Protected Domains</div>
+          <span class="muted">Never accessed</span>
+        </div>
+        <form id="domainForm" class="inline-form">
+          <input id="domainInput" type="text" placeholder="e.g. bank.com or 1password.com" />
+          <button type="submit" class="btn btn-small">Add</button>
+        </form>
+        <div id="domainList" class="chip-list"></div>
+      </section>
+
+      <section class="card log-card">
+        <div class="section-header">
+          <div class="section-title">Live Activity</div>
+          <button id="clearLogBtn" class="link-btn">Clear</button>
+        </div>
+        <div id="actionLog" class="log-list">
+          <div class="empty-state">No browser actions yet.</div>
+        </div>
+      </section>
+
+      <details class="card settings-card">
+        <summary class="section-title">Bridge Connection Settings</summary>
+        <div class="settings-body">
+          <label class="field">
+            <span>Local Hub WebSocket URL</span>
+            <input id="wsUrlInput" type="text" />
+          </label>
+          <label class="field">
+            <span>Auth Token</span>
+            <input id="tokenInput" type="password" />
+          </label>
+          <div class="settings-actions">
+            <button id="saveConnBtn" class="btn btn-primary btn-small">Save &amp; Reconnect</button>
+            <button id="toggleTokenBtn" class="btn btn-ghost btn-small">Show Token</button>
+          </div>
+        </div>
+      </details>
+    </div>
+    <script src="panel.js"></script>
+  </body>
+</html>
